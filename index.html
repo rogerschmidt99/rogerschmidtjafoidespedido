@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roger Schmidt - Treinador do Benfica</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        img {
+            max-width: 300px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        #mensagem {
+            font-size: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Roger Schmidt já foi despedido? Não!</h1>
+    <img src="roger_schmidt.jpg" alt="Roger Schmidt">
+    <div id="mensagem">Roger Schmidt arrasta-se como treinador do Benfica há <span id="cronometro"></span>.</div>
+
+    <script>
+        function calcularTempo() {
+            const dataInicio = new Date('2022-05-18T00:00:00'); // Data de início do Roger Schmidt no Benfica
+            const agora = new Date();
+            const diff = agora - dataInicio;
+
+            const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutos = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const segundos = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('cronometro').innerText = 
+                `${dias} dias, ${horas} horas, ${minutos} minutos e ${segundos} segundos`;
+        }
+
+        // Atualiza o cronômetro a cada segundo
+        setInterval(calcularTempo, 1000);
+    </script>
+</body>
+</html>
